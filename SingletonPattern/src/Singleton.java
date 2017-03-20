@@ -26,7 +26,7 @@ public class Singleton {
     static boolean firstThread = true;
 
     private Singleton(){ }
-    public static Singleton getInstance(){
+    public static synchronized Singleton getInstance(){
         if (firstInstance == null) {
             if (firstThread) {
                 firstThread = false;
@@ -37,8 +37,12 @@ public class Singleton {
                     e.printStackTrace();
                 }
             }
-            firstInstance = new Singleton();
-            Collections.shuffle(firstInstance.letterList);
+            synchronized(Singleton.class) {
+                if (firstInstance == null) {
+                    firstInstance = new Singleton();
+                    Collections.shuffle(firstInstance.letterList);
+                }
+            }
         }
         return firstInstance;
     }
