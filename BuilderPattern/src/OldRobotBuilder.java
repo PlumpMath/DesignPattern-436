@@ -1,5 +1,6 @@
 /**
  * Created by wenbinli on 3/20/17.
+ * implement Builder interface
  */
 public class OldRobotBuilder implements RobotBuilder {
     private Robot robot;
