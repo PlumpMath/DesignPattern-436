@@ -32,3 +32,9 @@ relative/path/to/dir/filename.extension
 
 # Ignore a file without extension
 relative/path/to/dir/anotherfile
+
+# Ignore .idea directory
+.idea/
+
+# Ignore file with extension 'iml'
+*.iml
